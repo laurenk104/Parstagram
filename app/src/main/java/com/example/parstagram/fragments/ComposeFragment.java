@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.example.parstagram.MainActivity;
 import com.example.parstagram.Post;
 import com.example.parstagram.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -161,9 +163,11 @@ public class ComposeFragment extends Fragment {
                     Log.e(TAG, "Error while saving", e);
                     Toast.makeText(getContext(), "Error while saving", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getContext(), "Post save was successful!", Toast.LENGTH_SHORT).show();
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, new PostsFragment()).commit();
+                BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+                bottomNavigationView.setSelectedItemId(R.id.action_home);
             }
         });
     }
