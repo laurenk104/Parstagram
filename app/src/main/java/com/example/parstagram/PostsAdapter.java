@@ -1,6 +1,7 @@
 package com.example.parstagram;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -61,6 +63,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private ImageView ivImage;
         private TextView tvDescription;
         private TextView tvDate;
+        private ImageView ivProfile;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +71,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvDate = itemView.findViewById(R.id.tvDate);
+            ivProfile = itemView.findViewById(R.id.ivProfile);
         }
 
         public void bind(Post post) {
@@ -77,6 +81,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
+            }
+            ParseFile profile = post.getProfile();
+            Log.d("profile", "" + profile);
+            if (profile != null) {
+                Glide.with(context).load(profile.getUrl()).into(ivProfile);
             }
         }
     }

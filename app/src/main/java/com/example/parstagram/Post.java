@@ -20,6 +20,7 @@ public class Post extends ParseObject {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_CREATED = "createdAt";
+    public static final String KEY_PROFILE = "profilePhoto";
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
@@ -66,5 +67,13 @@ public class Post extends ParseObject {
             e.printStackTrace();
         }
         return relativeDate;
+    }
+
+    public ParseFile getProfile() {
+        return getUser().getParseFile(KEY_PROFILE);
+    }
+
+    public void setProfile(ParseFile profile) {
+        getUser().put(KEY_PROFILE, profile);
     }
 }
