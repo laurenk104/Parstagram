@@ -14,8 +14,8 @@ The following **required** functionality is completed:
 - [x] The current signed in user is persisted across app restarts
 - [x] User can take a photo, add a caption, and post it to "Instagram"
 - [x] User can view the last 20 posts submitted to "Instagram"
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [ ] User can tap a post to view post details, including timestamp and caption.
+- [x] User can pull to refresh the last 20 posts submitted to "Instagram"
+- [x] User can tap a post to view post details, including timestamp and caption.
 
 The following **stretch** features are implemented:
 
@@ -59,7 +59,8 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I saw on the support queue that it was okay to not have a detail view as long as all that information is displayed on the
+timeline view, so I hope what I did was okay.
 
 ## License
 
