@@ -1,8 +1,8 @@
-# Project 4 - *Name of App Here*
+# Project 4 - *Instagram*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **11** hours spent in total
 
 ## User Stories
 
@@ -48,8 +48,6 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
@@ -64,7 +62,7 @@ timeline view, so I hope what I did was okay.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2020] [FBU - Codepath]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
