@@ -6,14 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.parstagram.fragments.ComposeFragment;
+import com.example.parstagram.fragments.DetailFragment;
 import com.parse.ParseFile;
-import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -64,6 +67,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvDescription;
         private TextView tvDate;
         private ImageView ivProfile;
+        private RelativeLayout rlPost;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +76,22 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvDate = itemView.findViewById(R.id.tvDate);
             ivProfile = itemView.findViewById(R.id.ivProfile);
+            rlPost = itemView.findViewById(R.id.rlPost);
+
+            ivImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Post post = posts.get(position);
+                        ((FragmentActivity) view.getContext())
+                                .getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.flContainer, new DetailFragment(post))
+                                .commit();
+                    }
+                }
+            });
         }
 
         public void bind(Post post) {
